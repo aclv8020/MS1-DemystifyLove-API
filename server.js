@@ -15,10 +15,12 @@ app.use((req, res, next) => {
    
    const origin = req.headers.origin;
    
-   // FOR TESTING: Use this line to allow all origins
-   res.header('Access-Control-Allow-Origin', '*');
+   // Check if origin is in allowed list OR ends with .websim.com
+   if (allowedOrigins.includes(origin) || (origin && origin.endsWith('.websim.com'))) {
+       res.header('Access-Control-Allow-Origin', origin);
+   }
    
-   // FOR PRODUCTION: Comment out the line above and uncomment the lines below
+   // TO REMOVE WEBSIM ACCESS: Comment out the line above and uncomment the line below
    // if (allowedOrigins.includes(origin)) {
    //     res.header('Access-Control-Allow-Origin', origin);
    // }
