@@ -64,7 +64,7 @@ app.post('/get-data', async (req, res) => {
 // === ElevenLabs TTS Route ===
 app.post('/get-tts', async (req, res) => {
     const elevenLabsApiKey = process.env.ELEVENLABS_API_KEY;
-    const voiceId = req.body.voiceId || 'your-default-voice-id'; // Replace with your preferred voice ID
+    const voiceId = req.body.voiceId || 'CKoTcZ5xsqyRtfiK9aee'; // Replacew/ID (Def:  bIHbv24MWmeRgasZH58o, Brian: nPczCjzI2devNBz1zQrb, Mike Brit: CKoTcZ5xsqyRtfiK9aee, Mark Natural: UgBBYS2sOqTuMpoF3BR0, Granps:NOpBlnGInO9m6vDvFkFC)//
     const text = req.body.text;
 
     if (!text) {
@@ -72,7 +72,8 @@ app.post('/get-tts', async (req, res) => {
     }
 
     try {
-        const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
+        // const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`, {
+        const response = await fetch(`https://api.elevenlabs.io//v1/text-to-speech/${voiceId}?output_format=mp3_44100_128`, {
             method: 'POST',
             headers: {
                 'xi-api-key': elevenLabsApiKey,
