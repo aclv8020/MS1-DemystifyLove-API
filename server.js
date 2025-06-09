@@ -7,9 +7,16 @@ app.use(express.json());
 
 // Add CORS headers
 app.use((req, res, next) => {
-    // res.header('Access-Control-Allow-Origin', '*'); // Allows all origins for testing
-    res.header('Access-Control-Allow-Origin', 'https://dailyinspire.site'); // Use this in production
-
+    const allowedOrigins = [
+        'https://dailyinspire.site',
+        'https://demystify.love'
+    ];
+    
+    const origin = req.headers.origin;
+    if (allowedOrigins.includes(origin)) {
+        res.header('Access-Control-Allow-Origin', origin);
+    }
+    
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
     next();
