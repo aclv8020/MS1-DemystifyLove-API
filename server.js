@@ -7,19 +7,25 @@ app.use(express.json());
 
 // Add CORS headers
 app.use((req, res, next) => {
-    const allowedOrigins = [
-        'https://dailyinspire.site',
-        'https://demystify.love'
-    ];
-    
-    const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
-        res.header('Access-Control-Allow-Origin', origin);
-    }
-    
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    next();
+   const allowedOrigins = [
+       'https://dailyinspire.site',
+       'https://purposetimer.com',
+       'https://demystify.love'
+   ];
+   
+   const origin = req.headers.origin;
+   
+   // FOR TESTING: Use this line to allow all origins
+   res.header('Access-Control-Allow-Origin', '*');
+   
+   // FOR PRODUCTION: Comment out the line above and uncomment the lines below
+   // if (allowedOrigins.includes(origin)) {
+   //     res.header('Access-Control-Allow-Origin', origin);
+   // }
+   
+   res.header('Access-Control-Allow-Headers', 'Content-Type');
+   res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
+   next();
 });
 
 // Handle preflight OPTIONS requests
