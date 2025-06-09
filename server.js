@@ -84,6 +84,7 @@ app.post('/get-tts', async (req, res) => {
             },
             body: JSON.stringify({
                 text: text,
+                model_id: "eleven_turbo_v2_5", // Use Eleven Turbo V2.5 for lowest cost
                 voice_settings: {
                     stability: 0.5,
                     similarity_boost: 0.75
