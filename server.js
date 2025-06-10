@@ -105,6 +105,11 @@ app.post('/get-tts', async (req, res) => {
     }
 });
 
+// === Ping Route ===
+app.get('/ping', (req, res) => {
+    res.send('pong');
+});
+
 // Start the server
 app.listen(3000, () => {
     console.log('Server running on port 3000');
